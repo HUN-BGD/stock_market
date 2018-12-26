@@ -19,8 +19,8 @@ class StockMarket():
         start = datetime.datetime(year, 1, 1)
         end = datetime.datetime(year, 12, 31)
 
-        df = pandas_datareader.DataReader(stock, 'yahoo', start, end)
-        return df
+        stock_data = pandas_datareader.DataReader(stock, 'yahoo', start, end)
+        return stock_data
 
     def _download_stock_data(self, stock, start_year, end_year):
         dst_folder = self._get_stock_folder(stock)
