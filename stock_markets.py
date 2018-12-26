@@ -29,8 +29,10 @@ class StockMarket():
             os.makedirs(dst_folder)
         for year in range(start_year, end_year+1):
             file_name = stock + '_' + str(year) + '.csv'
-            print(os.path.join(dst_folder, file_name))
-            # here you could call _download_data_from_yahoo and save later, with df.to_csv('file_name')
+            file_path = os.path.join(dst_folder, file_name)
+            stock_data = self._download_data_from_yahoo(stock, year)
+            stock_data.to_csv(file_path)
+
 
 
 if __name__ == "__main__":
